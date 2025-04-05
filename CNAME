@@ -206,7 +206,7 @@
       if (index < text.length) {
         typingText.innerHTML += text[index];
         index++;
-        setTimeout(typeLine, 100); // tốc độ gõ từng ký tự
+        setTimeout(typeLine, 100); // 
       }
     }
 
@@ -217,7 +217,7 @@
       if (!envelope.classList.contains("open")) {
         envelope.classList.add("open");
         audio.play();  // Phát nhạc khi mở thư
-        setTimeout(typeLine, 100); // delay sau khi mở để bắt đầu typing
+        setTimeout(typeLine, 100); // 
       }
     }
   </script>
