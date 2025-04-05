@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Gửi Em Yêu 💌</title>
+  <style>
+    body {
+     margin: 0;
+  padding: 0;
+  background: url('https://cdn.discordapp.com/attachments/1278039895155413143/1358188470312374458/image.png?ex=67f2ef15&is=67f19d95&hm=b6f555898119f66bf56f4fa39f1a4fe3e0e19a2ce5c1b9a174bea70836a53b49&') no-repeat center center fixed; 
+  background-size: cover; /* Đảm bảo ảnh phủ kín toàn bộ màn hình */
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+    }
+
+    .container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* Đảm bảo khung thư nằm trong container */
+    }
+
+    .envelope {
+  width: 400px;
+  height: 300px;
+  background: #fff0f5;
+  border: 2px solid #e91e63;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  box-shadow: 0 10px 30px rgba(255, 105, 135, 0.3);
+  margin-left: 30%; /* Điều chỉnh giá trị này để khung thư lệch sang phải */
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100px;
+      background: #f8bbd0;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      transform-origin: top;
+      transition: transform 1s ease-in-out;
+      z-index: 2;
+    }
+
+    .letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-in-out;
+  z-index: 1;
+  overflow-y: auto;
+    }
+
+    .letter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 10px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 1s ease-in-out;
+      z-index: 1;
+      overflow-y: auto; /* Cho phép cuộn tự động */
+      max-height: 80%;
+      scrollbar-width: thin; /* Cải thiện giao diện cuộn */
+    }
+
+
+.letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: url('https://cdn.discordapp.com/attachments/1278039895155413143/1358174754636431672/z6388253717704_06dffb124ccd253f8a6f55f06b2c0458.jpg?ex=67f2e24f&is=67f190cf&hm=b8c16ff015d38979a9db92802c97bf45cb8cab898490002dee8ae87a9c7ecd0a&') no-repeat center center;
+  background-size: cover; /* Đảm bảo ảnh phủ kín */
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-in-out;
+  z-index: 1;
+  overflow-y: auto;
+  max-height: 80%;
+  /* Thêm lớp nền mờ phía sau chữ */
+  background-color: rgba(255, 255, 255, 0.6); /* Màu trắng trong suốt */}
+
+    }
+
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .open .letter {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+.letter h1 {
+  color: #ffffff; /* Đổi màu chữ thành trắng */
+  text-align: center;
+  font-size: 24px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Thêm bóng cho chữ trắng để nổi bật */
+}
+
+.typing-text {
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff; /* Đổi màu chữ thành trắng */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Thêm bóng đổ cho chữ trắng */
+  min-height: 180px;
+}
+
+    .heart {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .instruction {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #e91e63;
+      animation: fadeIn 3s ease-in-out infinite alternate;
+      margin-left: 30%; /* Điều chỉnh để di chuyển chữ sang phải */
+      text-align: center
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Phần audio nhạc -->
+  <audio id="loveSong" preload="auto">
+    <source src="https://www.dropbox.com/scl/fi/velvkcv9ulv7kr3ky7f8x/y2mate.com-L-NG-c-a-H-i-Long-Salim-KAI-INH-Official-MV.mp3?rlkey=kfztt1asokizj3glk8p6vgw6z&st=4ae69v27&dl=1"> type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <div class="envelope" onclick="openEnvelope()" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <h1>Gửi Em Yêu 💌</h1>
+        <div class="typing-text" id="typingText"></div>
+        <div class="heart">💖💖💖</div>
+      </div>
+    </div>
+    <div class="instruction">✨ Nhấp vào để mở thư ✨</div>
+  </div>
+
+  <script>
+    const text = `
+    Em yêu ơi,
+
+    Khi em đọc những dòng này, là lúc mà anh đang buồn vì không có em bên cạnh, anh muốn được gặp em lắm.
+
+    Mấy nay có nhiều chuyện xảy ra, thật lòng anh không muốn em buồn, nhưng anh cũng sợ em phải chịu khổ cùng anh. Em là người anh yêu nên anh mới vậy á.
+
+    Chỉ cần còn được gặp em là ngày đó anh còn thấy vui, không được gặp em người anh bất rứt lắm luôn á, đúng kiểu bị khó chịu trong người. Hôm nay 6/4 là ngày con trai á, anh ước em có thể dành cho anh được 1 ngày trọn vẹn không có sự bận rộn hay việc gì cản trợ anh và em cả. Anh muốn được đi mua quần áo cùng em, được đi nhiều nơi với em, muốn có nhiều bức hình để có thể xếp thành 1 trái tim bự.
+
+    Anh yêu em lắm,
+
+    Anh yêu emmmmm 🥰
+    `;
+    
+    let index = 0;
+    let typingText = document.getElementById("typingText");
+
+    function typeLine() {
+      if (index < text.length) {
+        typingText.innerHTML += text[index];
+        index++;
+        setTimeout(typeLine, 100); // tốc độ gõ từng ký tự
+      }
+    }
+
+    function openEnvelope() {
+      const envelope = document.getElementById("envelope");
+      const audio = document.getElementById("loveSong");
+
+      if (!envelope.classList.contains("open")) {
+        envelope.classList.add("open");
+        audio.play();  // Phát nhạc khi mở thư
+        setTimeout(typeLine, 100); // delay sau khi mở để bắt đầu typing
+      }
+    }
+  </script>
+
+</body>
+</html>
